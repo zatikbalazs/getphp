@@ -1,13 +1,21 @@
 # getPHP.org - Local PHP Stack. One Command. Done.
 
-Launch your local PHP web stack with a single command. > Enjoy a full development environment without the bloat of a desktop application. Currently available for macOS (Apple Silicon) only. Windows and Linux versions are in the works.
+Launch your local PHP web stack with a single command. > Enjoy a full development environment without the bloat of a desktop application. Currently available for Apple Silicon Mac, Ubuntu, Debian and Mint. The Windows version is in the works.
 
-## How to use?
-Paste this into a macOS Terminal:
+## 1. macOS: Apple Silicon Mac
+Copy & paste this into your terminal:
 ```shell
-/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/getphporg/getphp/HEAD/getphp-mac.sh)"
+/bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/getphporg/getphp/HEAD/getphp.sh)"
 ```
-__Zero footprint:__ The getPHP script runs entirely in-memory and never installs itself on your machine. Only the PHP stack is added if you choose to install it. To manage services, update, or uninstall the stack, simply re-run the command in your terminal at any time.
+## 2. Linux: Ubuntu, Debian, Mint
+Copy & paste this into your terminal:
+```shell
+if ! command -v curl &> /dev/null; then sudo apt install -y curl; fi && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/getphporg/getphp/HEAD/getphp.sh)"
+```
+## 3. Windows: Currently under development.
+
+## Zero Footprint
+The getPHP script runs entirely in-memory and never installs itself on your machine. Only the PHP stack is added if you choose to install it. To manage services, update, or uninstall the stack, simply re-run the command in your terminal at any time.
 
 ## What does the getPHP script do?
 It lets you install and manage (update, restart, delete) your local PHP web stack.
@@ -20,7 +28,7 @@ The getPHP script installs and configures everything you need to start PHP web d
 - installs PHP
 - installs phpMyAdmin
 - enables port 80 in Apache
-- creates a www directory for the user
+- creates a localhost directory for the user
 - configures DocumentRoot
 - sets access_log and error_log locations
 - loads php_module
@@ -36,8 +44,8 @@ The getPHP script installs and configures everything you need to start PHP web d
 - starts the mysql service
 - starts the php service
 
-## How does the getPHP script work?
-The getPHP shell script is powered by Homebrew. It runs directly from GitHub and leaves no footprint on your system. Your PHP stack is only installed once you explicitly choose to do so.
+## How does getPHP work?
+It is a shell script that runs directly from GitHub and leaves no footprint on your system. Your PHP stack is only installed once you explicitly choose to do so.
 
 ## Is the getPHP script free?
 Yes, the getPHP script is 100% free and open source.
