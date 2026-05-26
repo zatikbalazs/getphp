@@ -106,9 +106,6 @@ if [[ $STACK == 0 ]]; then
 
             BREW_PREFIX=$(brew --prefix)
 
-            sed -i.bak "s/Listen 8080/Listen 80/" "$BREW_PREFIX/etc/httpd/httpd.conf"
-            printf "[${GREEN}  OK  ${RESET}]  Enabled port 80 in Apache.\n"
-
             if [[ "$OSTYPE" == "linux-gnu"* ]]; then
                 sudo setcap 'cap_net_bind_service=+ep' $(readlink -f $(which httpd))
 
@@ -118,6 +115,9 @@ if [[ $STACK == 0 ]]; then
                 sed -i.bak "s/Group _www/Group www-data/" "$BREW_PREFIX/etc/httpd/httpd.conf"
                 printf "[${GREEN}  OK  ${RESET}]  Changed group to www-data in Apache.\n"
             fi
+
+            sed -i.bak "s/Listen 8080/Listen 80/" "$BREW_PREFIX/etc/httpd/httpd.conf"
+            printf "[${GREEN}  OK  ${RESET}]  Enabled port 80 in Apache.\n"
 
             mkdir $HOME/localhost
             printf "[${GREEN}  OK  ${RESET}]  Created directory: $HOME/localhost\n"
