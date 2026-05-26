@@ -10,7 +10,7 @@ Copy & paste this into your terminal:
 ## Ubuntu, Debian, Mint
 Copy & paste this into your terminal:
 ```shell
-if ! command -v curl &> /dev/null; then sudo apt install -y curl; fi && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/getphporg/getphp/HEAD/getphp.sh)"
+if ! command -v curl &> /dev/null; then sudo apt install -y curl; fi && source <(curl -fsSL https://raw.githubusercontent.com/getphporg/getphp/HEAD/getphp.sh)
 ```
 ## Windows 11
 Currently under development.
