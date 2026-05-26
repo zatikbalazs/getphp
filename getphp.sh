@@ -172,9 +172,7 @@ EOF
             sed -i.bak "s/\$cfg\['Servers'\]\[\$i\]\['AllowNoPassword'\] = false;/\$cfg\['Servers'\]\[\$i\]\['AllowNoPassword'\] = true;/" "$BREW_PREFIX/etc/phpmyadmin.config.inc.php"
             printf "[${GREEN}  OK  ${RESET}]  Enabled passwordless login in phpMyAdmin.\n"
 
-cat <<EOF > $HOME/localhost/phpinfo.php
-<?php phpinfo(); ?>
-EOF
+            printf "<?php phpinfo(); ?>\n" > "$HOME/localhost/phpinfo.php"
             printf "[${GREEN}  OK  ${RESET}]  Created file: $HOME/localhost/phpinfo.php\n"
 
             brew services start httpd
